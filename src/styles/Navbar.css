@@ -1,0 +1,25 @@
+#nav{
+    width: 100%;
+    background-color: #7149C6;
+    color: #fff;
+    padding: 10px;
+    /* border: 2px solid blue; */
+}
+#nav-body{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+#nav-p{
+    font-size: 30px;
+    font-weight: 800;
+}
+#nav-cart{
+    padding: 10px 20px;
+    border: none;
+    margin: 0 20px;
+    background-color: #FC2947;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
