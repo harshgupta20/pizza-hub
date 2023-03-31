@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import "../styles/Home.css";
 import PizzaCard from '../components/PizzaCard';
-import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import axios from 'axios';
 
@@ -64,7 +63,7 @@ const Home = () => {
                         {
                             data ? data.map((pizza, key)=>{
                                 return (
-                                    <PizzaCard key={key} id={pizza.id} image={pizza.image} name={pizza.name} desc={pizza.description} rating={pizza.rating} price={pizza.price} size={pizza.size} toppings={pizza.toppings} isVeg={pizza.isVeg} />
+                                    <PizzaCard key={key} id={pizza.id} image={pizza.img_url} name={pizza.name} desc={pizza.description} rating={pizza.rating} price={pizza.price} size={pizza.size} toppings={pizza.toppings} isVeg={pizza.isVeg} />
                                 )
                             }) 
                             

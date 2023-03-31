@@ -2,6 +2,9 @@ import React from 'react';
 import "../styles/PizzaCard.css";
 
 const PizzaCard = ({id, name, image, desc, isVeg, rating, price}) => {
+
+  console.log(image);
+
   return (
     <>
       <div id="card">
