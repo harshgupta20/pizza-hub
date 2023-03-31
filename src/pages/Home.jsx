@@ -51,8 +51,6 @@ const Home = () => {
                         <PizzaCard />
                         <PizzaCard />
                         <PizzaCard />
-                        <PizzaCard />
-                        <PizzaCard />
                     </div>
                 </div>
 
