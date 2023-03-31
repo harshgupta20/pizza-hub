@@ -70,6 +70,11 @@
     font-weight: bold;
     font-size: larger;
 }
+#pop-size-option{
+    width: 50%;
+    display:flex;
+    justify-content: space-between;
+}
 #pop-size-label2{
     margin: 0 20px;
 }
@@ -77,6 +82,7 @@
     background-color: #FE6244;
     color: #fff;
     padding: 5px;
+    display: flex;
 } 
 #pop-toppings{
     display: flex;
@@ -87,11 +93,19 @@
     font-weight: 800;
     font-size: large;
 }
+#pop-toppings-options{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 #pop-toppings-label{
     background-color: #FE6244;
     color: #fff;
     padding: 5px;
     margin-right: 10px;
+    margin-top: 10px;
+    display: flex;
+    /* width: 300px; */
 }
 #pop-btn{
     padding: 10px 20px;

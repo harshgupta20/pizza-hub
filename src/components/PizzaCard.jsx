@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import "../styles/PizzaCard.css";
-
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+
 
 const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings }) => {
 
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
+    console.log(size[0].title);
     setOpen(true);
   };
 
@@ -20,7 +16,7 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
     setOpen(false);
   };
 
-  console.log(image);
+  console.log(size);
 
   return (
     <>
@@ -53,46 +49,39 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
 
             <div id="pop-extra">
               <div id="pop-size">
-                <p id="pop-size-p">Size</p>
+                <p id="pop-size-p">{size[0].title}</p>
                 <div id="pop-size-option">
-                  <label id="pop-size-label1" htmlFor="size1">
-                    Regular
-                    <input type="radio" name="size" id="size1" />
-                  </label>
-                  <label id="pop-size-label2" htmlFor="size2">
-                    Medium
-                    <input type="radio" name="size" id="size2" />
-                  </label>
-                  <label id="pop-size-label3" htmlFor="size3">
-                    Large
-                    <input type="radio" name="size" id="size3" />
-                  </label>
+                  {
+                    size &&
+                    size[0].items.map((data) => {
+                      return (
+                        <label id={`pop-size-label${data.size == "Regular" ? "1" : (data.size == "Medium" ? "2" : "3")}`} htmlFor={`size1${data.size == "Regular" ? "1" : (data.size == "Medium" ? "2" : "3")}`}>
+                          {data.size}
+                          <input type="radio" name="size" value={data.size} id={`size1${data.size == "Regular" ? "1" : (data.size == "Medium" ? "2" : "3")}`} />
+                        </label>
+                      )
+                    })
+                  }
                 </div>
               </div>
 
               <div id="pop-toppings">
                 <p id="pop-toppings-p">Toppings</p>
                 <div id="pop-toppings-options">
-                  <label id="pop-toppings-label" htmlFor="size3">
-                    Large
-                    <input type="radio" name="size" id="pop-size-option " />
-                  </label>
-                  <label id="pop-toppings-label" htmlFor="size3">
-                    Large
-                    <input type="radio" name="size" id="pop-size-option " />
-                  </label>
-                  <label id="pop-toppings-label" htmlFor="size3">
-                    Large
-                    <input type="radio" name="size" id="pop-size-option " />
-                  </label>
-                  <label id="pop-toppings-label" htmlFor="size3">
-                    Large
-                    <input type="radio" name="size" id="pop-size-option " />
-                  </label>
+                  {
+                    toppings[0].items.map((data) => {
+                      return (
+                        <label id="pop-toppings-label">
+                          {data.name}
+                          <input type="radio" name="size" id="pop-toppings-option" />
+                        </label>
+                      )
+                    })
+                  }
                 </div>
               </div>
 
-                <button id="pop-btn">Add to Cart</button>
+              <button id="pop-btn">Add to Cart</button>
             </div>
           </div>
         </div>
