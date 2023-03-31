@@ -1,21 +1,21 @@
 import React from 'react';
 import "../styles/PizzaCard.css";
 
-const PizzaCard = () => {
+const PizzaCard = ({id, name, image, desc, isVeg, rating, price}) => {
   return (
     <>
       <div id="card">
         <div id="card-body">
-          <img id="card-img" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="" />
+          <img id="card-img" src={image || ""} alt={`${name}_image`} />
           <div id="card-info">
             <div id="card-name-veg">
-              <p id="card-name">Onion Pizza</p>
-              <p id="card-veg">Veg</p>
+              <p id="card-name">{name}</p>
+              <p id="card-veg">{isVeg ? "Veg" : "Non-Veg"}</p>
             </div>
-            <p id="card-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia inventore possimus officiis.</p>
+            <p id="card-desc">{desc}</p>
           </div>
-          <p id="card-rating">Rating</p>
-          <p id="card-price">990 Rs.</p>
+          <p id="card-rating">{rating}</p>
+          <p id="card-price">{price} Rs.</p>
         </div>
         <button id="card-add">Add Pizza</button>
       </div>

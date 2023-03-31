@@ -64,7 +64,7 @@ const Home = () => {
                         {
                             data ? data.map((pizza, key)=>{
                                 return (
-                                    <PizzaCard key={key} id={pizza.id} image={pizza.image} name={pizza.name} desc={pizza.description} rating={pizza.rating} price={pizza.price} size={pizza.size} toppings={pizza.toppings}  />
+                                    <PizzaCard key={key} id={pizza.id} image={pizza.image} name={pizza.name} desc={pizza.description} rating={pizza.rating} price={pizza.price} size={pizza.size} toppings={pizza.toppings} isVeg={pizza.isVeg} />
                                 )
                             }) 
                             
