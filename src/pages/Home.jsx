@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import "../styles/Home.css";
 import PizzaCard from '../components/PizzaCard';
+import { Button } from '@mui/material';
 
 const Home = () => {
 
@@ -15,7 +16,7 @@ const Home = () => {
     // console.log("------");
     // console.log(price);
 
-    // https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg
+
 
     return (
         <>
@@ -36,7 +37,7 @@ const Home = () => {
                     </select>
                     <div id="home-filter-veg">
                         <p>Non-Veg</p>
-                        <label style={{margin:'0 10px'}} className="switch">
+                        <label style={{ margin: '0 10px' }} className="switch">
                             <input type="checkbox" onChange={(e) => setVegStatus(e.target.checked)} />
                             <span className="slider round"></span>
                         </label>
@@ -44,8 +45,17 @@ const Home = () => {
                     </div>
                 </div>
 
+                <div id="pizza-list">
+                    <div id="pizza-list-body">
+                        <PizzaCard />
+                        <PizzaCard />
+                        <PizzaCard />
+                        <PizzaCard />
+                        <PizzaCard />
+                        <PizzaCard />
+                    </div>
+                </div>
 
-                    <PizzaCard />
 
             </div>
         </>

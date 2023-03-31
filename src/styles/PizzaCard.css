@@ -1,0 +1,49 @@
+#card{
+    border: 2px solid #FFDEB9;
+    border-radius: 20px;
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+
+}
+#card-img{
+    width: 100%;
+    border-radius: 20px;
+}
+#card-info{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+#card-name-veg{
+    display: flex;
+    justify-content: space-between;
+}
+#card-name{
+    font-size: large;
+    font-weight: 800;
+}
+#card-rating{
+    margin-top: 5px;
+}
+#card-price{
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: larger;
+}
+#card-add{
+    background-color: #FE6244;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: large;
+    margin-top: 20px;
+    transition: all .3s;
+}
+#card-add:hover{
+    background-color: #fff;
+    border: 2px solid #FE6244;
+    color: #FE6244;
+}

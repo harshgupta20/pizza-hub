@@ -72,3 +72,20 @@
     display: flex;
     align-items: center;
 }
+/* Filter Section End */
+
+
+
+
+
+/* Pizza List Start */
+#pizza-list{
+    width: 100%;
+    /* border-top: 2px solid #000; */
+    padding-top: 50px;
+}
+#pizza-list-body{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
