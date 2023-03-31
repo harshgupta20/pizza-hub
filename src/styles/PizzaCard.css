@@ -58,6 +58,9 @@
     display: flex;
     flex-direction: column;
 }
+#pop-img{
+    border-radius: 20px;
+}
 #pop-extra{
     margin: 10px 0;
 }
@@ -69,6 +72,7 @@
 #pop-size-p{
     font-weight: bold;
     font-size: larger;
+    margin: 5px 0;
 }
 #pop-size-option{
     width: 50%;

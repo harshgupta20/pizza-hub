@@ -8,7 +8,7 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
-    console.log(size[0].title);
+    // console.log(size[0].title);
     setOpen(true);
   };
 
@@ -16,7 +16,7 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
     setOpen(false);
   };
 
-  console.log(size);
+  // console.log(size);
 
   return (
     <>
@@ -73,7 +73,7 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
                       return (
                         <label id="pop-toppings-label">
                           {data.name}
-                          <input type="radio" name="size" id="pop-toppings-option" />
+                          <input type="radio" name="toppings" id="pop-toppings-option" />
                         </label>
                       )
                     })

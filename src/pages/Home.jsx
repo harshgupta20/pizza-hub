@@ -26,9 +26,10 @@ const Home = () => {
             setData(fetchData.data);
         }
         dataFetch();
+        console.log("jkjk");
     },[])
     
-    console.log(data);
+    // console.log(data);
 
 
     return (
