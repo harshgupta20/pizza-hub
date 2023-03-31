@@ -3,6 +3,8 @@ import { useState } from 'react';
 import "../styles/Home.css";
 import PizzaCard from '../components/PizzaCard';
 import { Button } from '@mui/material';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 const Home = () => {
 
@@ -10,12 +12,24 @@ const Home = () => {
     const [rating, setRating] = useState();
     const [vegStatus, setVegStatus] = useState();
 
+    const [data, setData] = useState();
+
     // console.log(vegStatus);
     // console.log("------");
     // console.log(rating);
     // console.log("------");
     // console.log(price);
 
+
+    useEffect(()=> {
+        const dataFetch = async () => {
+            const fetchData = await axios.get("https://run.mocky.io/v3/ec196a02-aaf4-4c91-8f54-21e72f241b68")
+            setData(fetchData.data);
+        }
+        dataFetch();
+    },[])
+    
+    console.log(data);
 
 
     return (
@@ -47,10 +61,15 @@ const Home = () => {
 
                 <div id="pizza-list">
                     <div id="pizza-list-body">
-                        <PizzaCard />
-                        <PizzaCard />
-                        <PizzaCard />
-                        <PizzaCard />
+                        {
+                            data ? data.map((pizza, key)=>{
+                                return (
+                                    <PizzaCard key={key} id={pizza.id} image={pizza.image} name={pizza.name} desc={pizza.description} rating={pizza.rating} price={pizza.price} size={pizza.size} toppings={pizza.toppings}  />
+                                )
+                            }) 
+                            
+                            : "Loading..."
+                        }
                     </div>
                 </div>
 
