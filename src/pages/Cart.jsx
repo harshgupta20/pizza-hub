@@ -1,19 +1,23 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
+import { useState } from 'react';
 import CartCard from '../components/CartCard';
 import "../styles/Cart.css";
 
 const Cart = () => {
+
+  const [cartList, setCartList] = useState();
 
   useEffect(() => {
     const fetchData = JSON.parse(localStorage.getItem('cart'));
     if(!fetchData || fetchData === null){
       console.log("klklkl");
     }else{
-      const data = fetchData.data;
-      console.log(fetchData);
+      setCartList(fetchData);
     }
   },[])
+
+  console.log(cartList);
 
   return (
     <>
@@ -22,7 +26,13 @@ const Cart = () => {
           <h1 id="cart-h1">Your Cart looks Amazing </h1>
           <div id="cart-info">
             <div id="cart-list">
-              <CartCard />
+              {
+                  cartList.map((pizza, key)=> {
+                    return (
+                      <CartCard key={key} id={pizza.id} image={pizza.image} name={pizza.name} desc={pizza.desc} rating={pizza.rating} price={pizza.price} size={pizza.size} toppings={pizza.toppings} isVeg={pizza.isVeg} cartStatus="true" />
+                    )
+                })
+              }
             </div>
             <div id="cart-total">
 
