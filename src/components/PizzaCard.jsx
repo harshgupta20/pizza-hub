@@ -11,12 +11,46 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
     // console.log(size[0].title);
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
 
   // console.log(size);
+
+
+
+  // ADD TO CART
+  const handleAddToCart = () => {
+    let cart = localStorage.getItem("cart");
+    cart = JSON.parse(cart);
+    let temp = {
+      id: id,
+      name: name,
+      image: image,
+      desc, desc,
+      isVeg: isVeg,
+      rating: rating,
+      price: price,
+      quantity: '1',
+      size, size,
+      toppings: toppings
+    }
+    // console.log(cart);
+    if (cart === null) {
+      cart = [];
+      cart.push(temp);
+      cart = JSON.stringify(cart);
+      localStorage.setItem("cart", cart);
+    } else {
+      cart.push(temp);
+      console.log(cart);
+      cart = JSON.stringify(cart);
+      localStorage.setItem("cart", cart);
+    }
+
+    handleClose();
+  }
+
 
   return (
     <>
@@ -46,8 +80,9 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
         <div id="pop">
           <div id="pop-body">
             <img id="pop-img" src={image} alt={`${image}_image`} />
-
             <div id="pop-extra">
+
+              {/* Size */}
               <div id="pop-size">
                 <p id="pop-size-p">{size[0].title}</p>
                 <div id="pop-size-option">
@@ -65,6 +100,7 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
                 </div>
               </div>
 
+              {/* Toppings */}
               <div id="pop-toppings">
                 <p id="pop-toppings-p">Toppings</p>
                 <div id="pop-toppings-options">
@@ -80,8 +116,7 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
                   }
                 </div>
               </div>
-
-              <button id="pop-btn">Add to Cart</button>
+              <button onClick={handleAddToCart} id="pop-btn">Add to Cart</button>
             </div>
           </div>
         </div>
