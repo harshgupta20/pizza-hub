@@ -8,7 +8,7 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
-    // console.log(size[0].title);
+    // console.log(size[0].title);  
     setOpen(true);
   };
   const handleClose = () => {
@@ -48,9 +48,36 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
       cart = JSON.stringify(cart);
       localStorage.setItem("cart", cart);
     }
-
+    
     handleClose();
+    window.location.reload();
   }
+
+
+  const handleRemoveFromCart = () => {
+    // let cart = localStorage.getItem("cart");
+    // console.log(typeof(cart))
+    let cartArr = JSON.parse(localStorage.getItem("cart"));
+
+    for(let i = 0; i<cartArr.length; i++){
+      if(cartArr[i].id == id){
+        console.log(cartArr);
+        cartArr.splice(i,1);
+
+        localStorage.setItem('cart', JSON.stringify(cartArr));
+        console.log(cartArr);
+      }else{
+        console.log("Need debugging inside PizzaCard");
+      }
+    }
+
+    window.location.reload();
+
+    // console.log("Remove");
+    // console.log(cartArr);
+    // console.log(id);
+  }
+
 
 
   return (
@@ -69,7 +96,7 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
           <p id="card-price">{price} Rs.</p>
         </div>
         {
-          cartStatus==="true" ? <button onClick={handleClickOpen} id="card-add">Remove From Cart</button> : <button onClick={handleClickOpen} id="card-add">Add Pizza</button>
+          cartStatus==="true" ? <button onClick={handleRemoveFromCart} id="card-add">Remove From Cart</button> : <button onClick={handleClickOpen} id="card-add">Add Pizza</button>
         }
       </div>
 

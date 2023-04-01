@@ -24,12 +24,12 @@ const Home = () => {
 
     useEffect(() => {
         const cartData  = JSON.parse(localStorage.getItem('cart'));
-        console.log(cartData);
+        // console.log(typeof(cartData));
         const dataFetch = async () => {
             const fetchData = await axios.get("https://run.mocky.io/v3/ec196a02-aaf4-4c91-8f54-21e72f241b68")
             const temp = fetchData.data;
             if(cartData !== null){
-                console.log("if");
+                // console.log("if");
                 for(let i=0; i<cartData.length; i++){
                     for(let j=0; j<temp.length; j++){
                         if(cartData[i].id == temp[j].id){
@@ -47,7 +47,7 @@ const Home = () => {
     }, [])
 
 
-    console.log(data);
+    // console.log(data);
 
 
     return (

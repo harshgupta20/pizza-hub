@@ -1,0 +1,15 @@
+#cart{
+    width: 100%;
+    padding: 50px;
+}
+#cart-body{
+    display: flex;
+    flex-direction: column;
+}
+#cart-h1{
+    color: #FC2947;
+}
+#cart-info{
+    display: flex;
+    flex-direction: column;
+}
