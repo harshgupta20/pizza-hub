@@ -1,3 +1,89 @@
 #cart-card{
-    
+    width: 100%;
+    /* height: 300px; */
+    border: 1px solid #FE6244;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* border: 2px solid red; */
+}
+#cc-body{
+    display: flex;
+    /* border: 2px solid yellow; */
+    align-items: center;
+}
+#cc-image{
+    width: 350px;
+    height: 300px;
+    border-radius: 20px;
+}
+#cc-info{
+    padding: 20px;
+    width: 100%;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+}
+#cc-name{
+    font-weight: 800;
+    font-size: 30px;
+}
+#cc-desc{
+    font-size: 20px;
+}
+#cc-rating{
+    font-size: 20px;
+}
+#cc-price-q{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+#cc-price{
+    font-size: larger;
+    font-weight: 800;
+}
+#cc-add{
+    padding: 5px 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: #FE6244;
+    font-size: larger;
+    color: #fff;
+    transition: all .3s;
+}#cc-add:hover{
+    opacity: .8;
+}
+#cc-sub{
+    padding: 5px 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: #FE6244;
+    font-size: larger;
+    color: #fff;
+    transition: all .3s;
+    margin-left: 5px;
+}#cc-sub:hover{
+    opacity: 0.8;
+}
+
+#cc-delete{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    width: fit-content;
+    border-radius: 20px;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: all .3s;
+    font-size: larger;
+}
+#cc-delete:hover{
+    opacity: 0.8;
 }

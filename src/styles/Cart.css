@@ -11,5 +11,10 @@
 }
 #cart-info{
     display: flex;
+}
+#cart-list{
+    width: 60%;
+    /* border: 2px solid blue; */
+    display: flex;
     flex-direction: column;
 }
