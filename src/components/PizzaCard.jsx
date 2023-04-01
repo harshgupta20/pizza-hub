@@ -3,7 +3,7 @@ import "../styles/PizzaCard.css";
 import Dialog from '@mui/material/Dialog';
 
 
-const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings }) => {
+const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings, cartStatus }) => {
 
   const [open, setOpen] = useState(false);
 
@@ -33,7 +33,8 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
       price: price,
       quantity: '1',
       size, size,
-      toppings: toppings
+      toppings: toppings,
+      inCart:'true'
     }
     // console.log(cart);
     if (cart === null) {
@@ -67,7 +68,9 @@ const PizzaCard = ({ id, name, image, desc, isVeg, rating, price, size, toppings
           <p id="card-rating">{rating}</p>
           <p id="card-price">{price} Rs.</p>
         </div>
-        <button onClick={handleClickOpen} id="card-add">Add Pizza</button>
+        {
+          cartStatus==="true" ? <button onClick={handleClickOpen} id="card-add">Remove From Cart</button> : <button onClick={handleClickOpen} id="card-add">Add Pizza</button>
+        }
       </div>
 
 

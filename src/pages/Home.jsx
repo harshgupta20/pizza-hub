@@ -10,6 +10,8 @@ const Home = () => {
     const [price, setPrice] = useState();
     const [rating, setRating] = useState();
     const [vegStatus, setVegStatus] = useState();
+    const [cartList, setCartList] = useState([]);
+    const [foundInCart, setFoundInCart] = useState(false);
 
     const [data, setData] = useState();
 
@@ -20,16 +22,32 @@ const Home = () => {
     // console.log(price);
 
 
-    useEffect(()=> {
+    useEffect(() => {
+        const cartData  = JSON.parse(localStorage.getItem('cart'));
+        console.log(cartData);
         const dataFetch = async () => {
             const fetchData = await axios.get("https://run.mocky.io/v3/ec196a02-aaf4-4c91-8f54-21e72f241b68")
-            setData(fetchData.data);
+            const temp = fetchData.data;
+            if(cartData !== null){
+                console.log("if");
+                for(let i=0; i<cartData.length; i++){
+                    for(let j=0; j<temp.length; j++){
+                        if(cartData[i].id == temp[j].id){
+                            temp.splice(j, 1);
+                        }
+                    }
+                }
+            }
+            setData(temp);
         }
+
+        // Getting cart data from localstorage and store in hook
+        setCartList(cartData || []);
         dataFetch();
-        console.log("jkjk");
-    },[])
-    
-    // console.log(data);
+    }, [])
+
+
+    console.log(data);
 
 
     return (
@@ -62,13 +80,22 @@ const Home = () => {
                 <div id="pizza-list">
                     <div id="pizza-list-body">
                         {
-                            data ? data.map((pizza, key)=>{
+                            cartList && cartList.map((pizza, key) => {
+                                return <>
+                                    <PizzaCard key={key} id={pizza.id} image={pizza.image} name={pizza.name} desc={pizza.desc} rating={pizza.rating} price={pizza.price} size={pizza.size} toppings={pizza.toppings} isVeg={pizza.isVeg} cartStatus="true" />
+                                </>
+                            })
+                        }
+                        {
+                            data ? data.map((pizza, key) => {
                                 return (
-                                    <PizzaCard key={key} id={pizza.id} image={pizza.img_url} name={pizza.name} desc={pizza.description} rating={pizza.rating} price={pizza.price} size={pizza.size} toppings={pizza.toppings} isVeg={pizza.isVeg} />
+                                    <>
+                                        <PizzaCard key={key} id={pizza.id} image={pizza.img_url} name={pizza.name} desc={pizza.description} rating={pizza.rating} price={pizza.price} size={pizza.size} toppings={pizza.toppings} isVeg={pizza.isVeg} cartStatus="false" />
+                                    </>
                                 )
-                            }) 
-                            
-                            : "Loading..."
+                            })
+
+                                : "Loading..."
                         }
                     </div>
                 </div>
